@@ -1,69 +1,69 @@
-// Step 1: Extract API Data
-const data = steps.CADRequest.$return_value.data[0];
-const htmlContent = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CAD Data</title>
-</head>
-<body>
-    <h1>CAD System Data</h1>
-    <div id="cad-data">
-        <p><strong>Date/Time:</strong> ${data.CFS_Date_Time}</p>
-        <p><strong>Description:</strong> ${data.Description}</p>
-        <p><strong>Street Name:</strong> ${data.Street_Name}</p>
-        <p><strong>City:</strong> ${data.City}</p>
-        <p><strong>Cross Streets:</strong> ${data.Cross_Streets}</p>
-        <p><strong>Responder Agencies:</strong> ${data.Responder_Agencies}</p>
-    </div>
-</body>
-</html>
-`;
 
-// Step 2: Use GitHub API to Update index.html
-const axios = require("axios");
-
-const githubRepoOwner = "booneema"; // Your GitHub username
-const repo = "PublicCAD"; // Your GitHub repository
-const branch = "main"; // The branch you're using
-const filePath = "index.html"; // Path to the HTML file in your repo
-const commitMessage = "Updated index.html with latest CAD data";
-
-// GitHub API URL for updating the file
-const githubApiUrl = `https://api.github.com/repos/${githubRepoOwner}/${repo}/contents/${filePath}`;
-
-// Step 3: Get the SHA of the existing file (needed for updating)
-const getFileSha = async () => {
-    const response = await axios.get(githubApiUrl);
-    return response.data.sha;
-};
-
-// Step 4: Commit new HTML content to GitHub
-const updateFile = async (sha) => {
-    const base64Content = Buffer.from(htmlContent).toString("base64");
-
-    const response = await axios.put(
-        githubApiUrl,
-        {
-            message: commitMessage,
-            content: base64Content,
-            sha: sha,
-            branch: branch
-        },
-        {
-            headers: {
-                Authorization: `token YOUR_GITHUB_PERSONAL_ACCESS_TOKEN`, // Replace with your GitHub token
-            }
-        }
-    );
-
-    return response.data;
-};
-
-// Get the SHA of the current file and update it
-getFileSha()
-    .then(sha => updateFile(sha))
-    .then(response => console.log("File updated successfully:", response))
-    .catch(error => console.error("Error updating file:", error));
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Incident Data</title>
+        <style>
+          table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+          th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Incident Data</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Date & Time</th>
+              <th>Description</th>
+              <th>Street Name</th>
+              <th>City</th>
+              <th>Cross Streets</th>
+              <th>Responder Agencies</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+      <tr>
+        <td>2024-10-19 22:33:44.022666-04:00</td>
+        <td>Suspicious</td>
+        <td>CHAP RD</td>
+        <td>TWILIGHT</td>
+        <td>RANGER ST (122.9 feet) and TROUT ST (185.3 feet)</td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <td>2024-10-19 22:23:22.433294-04:00</td>
+        <td>Sick</td>
+        <td>DEANNA AVE</td>
+        <td>COMFORT</td>
+        <td>EMILY ST (102.9 feet) and JOES BRANCH RD (0.1 miles)</td>
+        <td>BCAA</td>
+      </tr>
+    
+      <tr>
+        <td>2024-10-19 20:05:27.079395-04:00</td>
+        <td>Reckless Driver</td>
+        <td>COAL RIVER RD</td>
+        <td>COMFORT</td>
+        <td>EMILY ST (157.6 feet) and JOES BRANCH RD (0.1 miles)</td>
+        <td>WVSPM</td>
+      </tr>
+    
+          </tbody>
+        </table>
+      </body>
+      </html>
+    

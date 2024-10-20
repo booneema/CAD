@@ -41,7 +41,7 @@
           }
           
           th {
-            background: linear-gradient(135deg, #6b8f71, #4CAF50);
+            background-color: #4CAF50; /* Solid color for the header */
             color: white;
             text-transform: uppercase;
             font-weight: 500;
@@ -52,29 +52,28 @@
           td {
             font-size: 14px;
             color: #333;
-            border-bottom: 1px solid #e0e0e0;
-            border-right: 1px solid #e0e0e0;
           }
 
-          td:last-child {
-            border-right: none;
-          }
-          
           tr:nth-child(even) {
-            background-color: #f8f8f8;
-          }
-          
-          tr:hover {
-            background-color: #f1f1f1;
-            transition: background-color 0.3s ease-in-out;
+            background-color: #f8f8f8; /* Light contrasting color for even rows */
           }
 
-          tr:last-of-type td {
-            border-bottom: none;
+          tr:nth-child(odd) {
+            background-color: #ffffff; /* Another light color for odd rows */
+          }
+
+          tr:hover {
+            background-color: #f1f1f1; /* Subtle hover effect */
+            transition: background-color 0.3s ease-in-out;
           }
 
           table {
             border-radius: 8px;
+          }
+
+          /* Removed borders for a cleaner look */
+          td, th {
+            border: none;
           }
 
         </style>

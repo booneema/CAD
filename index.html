@@ -6,52 +6,77 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Active Calls for Service</title>
         <style>
+          @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+          
           body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f4f6f9;
             margin: 0;
             padding: 20px;
           }
+          
           h1 {
             text-align: center;
             color: #333;
             font-size: 2em;
             margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            font-weight: 500;
           }
+
           table {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             border-collapse: collapse;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             background-color: #fff;
-            overflow: hidden;
             border-radius: 8px;
+            overflow: hidden;
           }
+          
           th, td {
-            padding: 12px 15px;
+            padding: 15px 20px;
             text-align: left;
           }
+          
           th {
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #6b8f71, #4CAF50);
             color: white;
             text-transform: uppercase;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 14px;
+            letter-spacing: 0.1em;
           }
+
           td {
             font-size: 14px;
             color: #333;
+            border-bottom: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
           }
-          tr {
-            border-bottom: 1px solid #dddddd;
+
+          td:last-child {
+            border-right: none;
           }
+          
+          tr:nth-child(even) {
+            background-color: #f8f8f8;
+          }
+          
           tr:hover {
             background-color: #f1f1f1;
+            transition: background-color 0.3s ease-in-out;
           }
-          tr:last-of-type {
-            border-bottom: 2px solid #4CAF50;
+
+          tr:last-of-type td {
+            border-bottom: none;
           }
+
+          table {
+            border-radius: 8px;
+          }
+
         </style>
         <script>
           // Refresh the page every 60 seconds
@@ -81,7 +106,7 @@
           <td>LICK CREEK RD</td>
           <td>DANVILLE</td>
           <td>KENMORE DR (187.2 feet) and CENTRAL AVE (0.1 miles)</td>
-          <td></td>
+          <td>Boone County Ambulance Authority</td>
         </tr>
       
         <tr>

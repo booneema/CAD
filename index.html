@@ -32,6 +32,11 @@
             font-weight: 400;
           }
 
+          .table-container {
+            width: 100%;
+            overflow-x: auto; /* Allows horizontal scrolling on smaller screens */
+          }
+
           table {
             width: 100%;
             max-width: 1200px;
@@ -46,6 +51,7 @@
           th, td {
             padding: 15px 20px;
             text-align: left;
+            white-space: nowrap; /* Prevent text wrapping in table cells */
           }
           
           th {
@@ -75,15 +81,26 @@
             transition: background-color 0.3s ease-in-out;
           }
 
-          table {
-            border-radius: 8px;
-          }
-
           /* Removed borders for a cleaner look */
           td, th {
             border: none;
           }
 
+          /* Media query for mobile responsiveness */
+          @media (max-width: 600px) {
+            th, td {
+              padding: 10px; /* Reduce padding on smaller screens */
+              font-size: 12px; /* Reduce font size on smaller screens */
+            }
+
+            h1 {
+              font-size: 1.5em;
+            }
+
+            h2 {
+              font-size: 1em;
+            }
+          }
         </style>
         <script>
           // Refresh the page every 60 seconds
@@ -95,19 +112,20 @@
       <body>
         <h1>Active Calls for Service</h1>
         <h2>This information may be delayed up to 3 minutes</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Incident Reported</th>
-              <th>Incident</th>
-              <th>Street Name</th>
-              <th>City</th>
-              <th>Cross Streets</th>
-              <th>Responder Agencies</th>
-            </tr>
-          </thead>
-          <tbody>
-            
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Incident Reported</th>
+                <th>Incident</th>
+                <th>Street Name</th>
+                <th>City</th>
+                <th>Cross Streets</th>
+                <th>Responder Agencies</th>
+              </tr>
+            </thead>
+            <tbody>
+              
           <tr>
             <td>06:26 PM</td>
             <td>Fire - Other</td>
@@ -126,8 +144,9 @@
             <td>WV State Police</td>
           </tr>
         
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       </body>
       </html>
     

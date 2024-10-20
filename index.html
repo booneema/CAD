@@ -84,6 +84,14 @@
             border: none;
           }
 
+          /* No active calls message */
+          .no-calls-message {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+            padding: 20px;
+          }
+
           /* Mobile responsive stack view */
           @media (max-width: 600px) {
             table, thead, tbody, th, td, tr {
@@ -122,6 +130,13 @@
               text-align: left;
               color: #333;
             }
+
+            .no-calls-message {
+              text-align: center;
+              font-size: 16px;
+              color: #555;
+              padding: 20px;
+            }
           }
 
         </style>
@@ -149,10 +164,6 @@
             </thead>
             <tbody>
               
-        <tr>
-          <td colspan="6" style="text-align: center;">There are no Active Calls for Service at this time</td>
-        </tr>
-      
             </tbody>
           </table>
         </div>

@@ -32,6 +32,13 @@
             font-weight: 400;
           }
 
+          .last-updated {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+          }
+
           .table-container {
             width: 100%;
           }
@@ -130,11 +137,25 @@
           setInterval(() => {
             location.reload();
           }, 60000); // 60000 milliseconds = 1 minute
+
+          // Display the last updated time
+          document.addEventListener('DOMContentLoaded', () => {
+            const lastUpdatedElement = document.getElementById('last-updated');
+            const now = new Date();
+            const formattedTime = now.toLocaleTimeString('en-US', {
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit',
+              hour12: true
+            });
+            lastUpdatedElement.textContent = 'Last Updated: ' + formattedTime;
+          });
         </script>
       </head>
       <body>
         <h1>Active Calls for Service</h1>
         <h2>This information may be delayed up to 3 minutes</h2>
+        <div class="last-updated" id="last-updated">Last Updated: </div>
         <div class="table-container">
           <table>
             <thead>
@@ -155,7 +176,7 @@
             <td data-label="Street Name">ROBERT C BYRD FWY</td>
             <td data-label="City">WV</td>
             <td data-label="Cross Streets"></td>
-            <td data-label="Responder Agencies">Boone County Sheriff's Office, WVDOH</td>
+            <td data-label="Responder Agencies">BCSO, WVDOH</td>
           </tr>
         
             </tbody>

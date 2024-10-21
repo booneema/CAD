@@ -86,7 +86,6 @@
             transition: background-color 0.3s ease-in-out;
           }
 
-          /* Removed borders for a cleaner look */
           td, th {
             border: none;
           }
@@ -133,22 +132,27 @@
 
         </style>
         <script>
-          // Refresh the page every 60 seconds
-          setInterval(() => {
-            location.reload();
-          }, 60000); // 60000 milliseconds = 1 minute
+          // Refresh the page every 60 seconds, but only if not on mobile devices
+          const isMobile = window.innerWidth <= 600;
+          if (!isMobile) {
+            setInterval(() => {
+              location.reload();
+            }, 60000); // 60000 milliseconds = 1 minute
+          }
 
           // Display the last updated time
           document.addEventListener('DOMContentLoaded', () => {
             const lastUpdatedElement = document.getElementById('last-updated');
-            const now = new Date();
-            const formattedTime = now.toLocaleTimeString('en-US', {
-              hour: '2-digit',
-              minute: '2-digit',
-              second: '2-digit',
-              hour12: true
-            });
-            lastUpdatedElement.textContent = 'Last Updated: ' + formattedTime;
+            if (lastUpdatedElement) {
+              const now = new Date();
+              const formattedTime = now.toLocaleTimeString('en-US', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+              });
+              lastUpdatedElement.textContent = 'Last Updated: ' + formattedTime;
+            }
           });
         </script>
       </head>

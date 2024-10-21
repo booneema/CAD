@@ -32,13 +32,6 @@
             font-weight: 400;
           }
 
-          .last-updated {
-            text-align: center;
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 10px;
-          }
-
           .table-container {
             width: 100%;
           }
@@ -137,25 +130,11 @@
           setInterval(() => {
             location.reload();
           }, 60000); // 60000 milliseconds = 1 minute
-
-          // Display the last updated time
-          document.addEventListener('DOMContentLoaded', () => {
-            const lastUpdatedElement = document.getElementById('last-updated');
-            const now = new Date();
-            const formattedTime = now.toLocaleTimeString('en-US', {
-              hour: '2-digit',
-              minute: '2-digit',
-              second: '2-digit',
-              hour12: true
-            });
-            lastUpdatedElement.textContent = 'Last Updated: ' + formattedTime;
-          });
         </script>
       </head>
       <body>
         <h1>Active Calls for Service</h1>
         <h2>This information may be delayed up to 3 minutes</h2>
-        <div class="last-updated" id="last-updated">Last Updated: </div>
         <div class="table-container">
           <table>
             <thead>
@@ -170,6 +149,15 @@
             </thead>
             <tbody>
               
+          <tr>
+            <td data-label="Incident Reported">12:54 PM</td>
+            <td data-label="Incident"></td>
+            <td data-label="Street Name">LICK CREEK RD</td>
+            <td data-label="City">DANVILLE</td>
+            <td data-label="Cross Streets">KENMORE DR (187.2 feet) and CENTRAL AVE (0.1 miles)</td>
+            <td data-label="Responder Agencies"></td>
+          </tr>
+        
           <tr>
             <td data-label="Incident Reported">11:48 AM</td>
             <td data-label="Incident">Sick</td>
